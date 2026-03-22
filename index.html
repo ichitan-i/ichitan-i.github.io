@@ -1,0 +1,264 @@
+       <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壱単位</title>
+    <style>
+        /* 全体の設定：暖かみのある色合いと明朝体 */
+        body {
+            font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+            background-color: #FAFAF7;
+            color: #4A3B32;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ヘッダー周り：シンプルでソリッドな構成 */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        header h1 {
+            font-size: 28px;
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 14px;
+            color: #8C7A6B;
+        }
+
+        /* ナビゲーション */
+        nav {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        nav a {
+            color: #4A3B32;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #D4A373;
+        }
+
+        /* コンテンツエリア */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 80px;
+        }
+        h2 {
+            font-size: 22px;
+            text-align: center;
+            border-bottom: 1px solid #E6DCD3;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        /* -----------------------------------
+           著作一覧のカードデザイン（アップデート）
+           ----------------------------------- */
+        .work-card {
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(74, 59, 50, 0.05);
+            display: flex;
+            flex-direction: column; /* スマホでは縦並び */
+            gap: 20px; /* 画像とテキストの隙間 */
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+        
+        /* 横長（16:9）のダミー画像枠 */
+        .work-cover {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #F4EFEA; /* 優しいミルクティー色 */
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #BBAAA0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            overflow: hidden; /* 実際の画像を入れた時に角丸を維持するため */
+        }
+
+        /* 実際の画像を入れる時のための指定 */
+        .work-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-text h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #D4A373;
+            line-height: 1.4;
+        }
+        .work-text p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* PC画面（画面幅600px以上）でのレイアウト：画像を左、テキストを右に */
+        @media (min-width: 600px) {
+            .work-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .work-cover {
+                flex: 0 0 240px; /* 画像の幅を固定して控えめに */
+            }
+        }
+
+        /* 受賞歴リスト */
+        .award-list {
+            list-style: none;
+            padding: 0;
+        }
+        .award-list li {
+            font-size: 15px;
+            margin-bottom: 15px;
+            padding-left: 1em;
+            text-indent: -1em;
+        }
+        .award-year {
+            color: #D4A373;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        /* SNSリンク */
+        .sns-links {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .sns-links a {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #F0EAE1;
+            color: #4A3B32;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .sns-links a:hover {
+            background-color: #D4A373;
+            color: #FFFFFF;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 12px;
+            color: #8C7A6B;
+            border-top: 1px solid #E6DCD3;
+        }
+        #works a {
+            text-decoration: none;
+            color: #4A3B32; /* サイト全体の基本文字色 */
+            display: block; /* クリック範囲を正しくカード全体に広げるため */
+        }
+        #awards a {
+            text-decoration: none;
+            color: #4A3B32; /* サイト全体の基本文字色 */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>壱単位</h1>
+        <p>小説執筆 / シナリオ・原作制作</p>
+    </header>
+
+    <nav>
+        <a href="#about">Profile</a>
+        <a href="#works">Works</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>Profile</h2>
+            <p style="text-align: center; font-size: 15px;">
+                壱単位（いちたんい）と申します。兼業ライトノベル作家、シナリオ・原作制作者。<br>
+                読者をキャラの隣で一緒に旅をしていただけるような細やかな描写を心がけています。<br>
+                お仕事のご依頼、ご相談はContactよりお気軽にご連絡ください。
+            </p>
+        </section>
+
+        <section id="works">
+            <h2>Works</h2>
+            
+            <a href="https://gs-ch.com/video/sm5bUAaiPrmJSEVc5km7BDm4" target="_blank">
+            <div class="work-card">
+                <div class="work-cover"><img src="./img_01.png"></div>
+                <div class="work-text">
+                    <h3>水無月るおんの大失態。</h3>
+                    <p>原作・シナリオ担当。第2回「G'sこえけん」音声化短編コンテストボイスドラマ部門優秀賞受賞作。緊張するととんでもないクセを発現してしまう和風美少女、水無月るおん。恋を諦めかけたそのときに……！ CV：島田愛野さま。G'sチャンネル、YouTubeにて無料配信中。</p>
+                </div>
+            </div>
+            </a>
+
+            <div class="work-card">
+                <div class="work-cover">Coming soon</div>
+                <div class="work-text">
+                    <h3>自動人形のあなたは闇の天才人形師に毎晩しっとりメンテナンスされるのです。</h3>
+                    <p>原作・シナリオ担当。第4回「G'sこえけん」音声化短編コンテスト大賞受賞作。CV：Coming soon。</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="awards">
+            <h2>Awards & News</h2>
+            <ul class="award-list">
+                <li><span class="award-year">2026.02</span> <a href="https://kakuyomu.jp/contests/gs_koeken_2025" target="_blank">第4回「G'sこえけん」音声化短編コンテストにて大賞を受賞しました。</a></li>
+                <li><span class="award-year">2025.02</span> <a href="https://books.tugikuru.jp/contest5/" target="_blank">第5回ツギクル小説大賞にて特別審査賞を受賞しました。</a></li>
+                <li><span class="award-year">2024.09</span> <a href="https://creators.mechacomic.jp/novel_contest/novel_romance/result" target="_blank">めちゃコミッククリエイターズ恋愛マンガ原作大賞にて期待賞を受賞しました。</a></li>
+                <li><span class="award-year">2024.01</span> <a href="https://kakuyomu.jp/contests/gs_koeken_2023" target="_blank">第2回「G'sこえけん」音声化短編コンテストにてボイスドラマ部門優秀賞を受賞しました。</a></li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact & SNS</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">
+                壱単位へのご連絡、最新の執筆状況や日常のつぶやきはこちらから。
+            </p>
+            <div class="sns-links">
+                <a href="mailto:ichitan.novel@gmail.com">メール</a>
+                <a href="https://x.com/ichitan_i" target="_blank">X (Twitter)</a>
+                <a href="https://kakuyomu.jp/users/ichitan" target="_blank">カクヨム</a>
+                <a href="https://story.nola-novel.com/user/U-2a42186c-1f70-41c4-865a-785117cf08fc" target="_blank">Nolaノベル</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Ichitan-i. All rights reserved.
+    </footer>
+
+</body>
+</html> 
