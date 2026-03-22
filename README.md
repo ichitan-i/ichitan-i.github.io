@@ -1,1 +1,0 @@
-# ichitan-i.github.io
