@@ -82,45 +82,25 @@
         }
         
         /* 横長（16:9）のダミー画像枠 */
-        /* .work-cover {
+        /* work-coverの角丸設定（強化版） */
+        .work-cover {
             width: 100%;
             aspect-ratio: 16 / 9;
-            /* background-color: #F4EFEA; /* 優しいミルクティー色 */ */
-            border-radius: 6px;
+            border-radius: 8px;           /* 角丸の大きさ（6px → 8px に少し調整。ご好みで変更可） */
+            overflow: hidden;             /* 画像が角丸からはみ出さないように必須 */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #BBAAA0;
-            font-size: 13px;
-            letter-spacing: 1px;
-            overflow: hidden; /* 実際の画像を入れた時に角丸を維持するため */
+            background-color: #F4EFEA;    /* 画像読み込み前の背景色（任意） */
         }
-
-        /* 実際の画像を入れる時のための指定 */
+        
         .work-cover img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        } */
-/* work-coverの角丸設定（強化版） */
-.work-cover {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 8px;           /* 角丸の大きさ（6px → 8px に少し調整。ご好みで変更可） */
-    overflow: hidden;             /* 画像が角丸からはみ出さないように必須 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F4EFEA;    /* 画像読み込み前の背景色（任意） */
-}
-
-.work-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;            /* 画像をコンテナに合わせてトリミング */
-    border-radius: 8px;           /* img要素にも同じ角丸を直接適用（確実性向上） */
-    display: block;               /* 余計な隙間を防ぐ */
-}
+            object-fit: cover;            /* 画像をコンテナに合わせてトリミング */
+            border-radius: 8px;           /* img要素にも同じ角丸を直接適用（確実性向上） */
+            display: block;               /* 余計な隙間を防ぐ */
+        }
         
         .work-text h3 {
             margin: 0 0 10px 0;
@@ -231,7 +211,7 @@
         @media (max-width: 599px) {
             #about p {
                 text-align: left;         /* 左寄せ */
-                width: 60%;               /* 画面幅の60%に制限 */
+                width: 80%;               /* 画面幅の60%に制限 */
                 max-width: 60%;           /* 確実に60%以内に収める */
                 margin: 0 auto;           /* 中央に配置（左寄せテキストを中央寄せレイアウトで表示） */
                 white-space: normal;      /* 自然な折り返しを許可 */
