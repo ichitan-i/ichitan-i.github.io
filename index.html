@@ -15,7 +15,7 @@
             padding: 0;
         }
 
-        /* ヘッダー周り */
+        /* ヘッダー周り：シンプルでソリッドな構成 */
         header {
             text-align: center;
             padding: 60px 20px 40px;
@@ -65,7 +65,9 @@
             font-weight: normal;
         }
 
-        /* カード */
+        /* -----------------------------------
+           著作一覧のカードデザイン（アップデート）
+           ----------------------------------- */
         .work-card {
             background-color: #FFFFFF;
             border-radius: 8px;
@@ -73,16 +75,17 @@
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(74, 59, 50, 0.05);
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            flex-direction: column; /* スマホでは縦並び */
+            gap: 20px; /* 画像とテキストの隙間 */
             text-decoration: none !important;
             color: inherit !important;
         }
-
+        
+        /* 横長（16:9）のダミー画像枠 */
         .work-cover {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: #F4EFEA;
+            background-color: #F4EFEA; /* 優しいミルクティー色 */
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -90,9 +93,10 @@
             color: #BBAAA0;
             font-size: 13px;
             letter-spacing: 1px;
-            overflow: hidden;
+            overflow: hidden; /* 実際の画像を入れた時に角丸を維持するため */
         }
 
+        /* 実際の画像を入れる時のための指定 */
         .work-cover img {
             width: 100%;
             height: 100%;
@@ -110,7 +114,18 @@
             margin: 0;
         }
 
-        /* 受賞歴 */
+        /* PC画面（画面幅600px以上）でのレイアウト：画像を左、テキストを右に */
+        @media (min-width: 600px) {
+            .work-card {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .work-cover {
+                flex: 0 0 240px; /* 画像の幅を固定して控えめに */
+            }
+        }
+
+        /* 受賞歴リスト */
         .award-list {
             list-style: none;
             padding: 0;
@@ -127,18 +142,15 @@
             font-weight: bold;
         }
 
-        /* SNSリンク（スマホ：縦並び） */
+        /* SNSリンク */
         .sns-links {
+            text-align: center;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
+            justify-content: center;
+            gap: 20px;
         }
         .sns-links a {
             display: inline-block;
-            width: 100%;
-            max-width: 260px;
-            text-align: center;
             padding: 10px 25px;
             background-color: #F0EAE1;
             color: #4A3B32;
@@ -152,25 +164,6 @@
             color: #FFFFFF;
         }
 
-        /* PC表示 */
-        @media (min-width: 600px) {
-            .work-card {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            .work-cover {
-                flex: 0 0 240px;
-            }
-
-            /* SNSを横並びに */
-            .sns-links {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-        }
-
         /* フッター */
         footer {
             text-align: center;
@@ -179,62 +172,119 @@
             color: #8C7A6B;
             border-top: 1px solid #E6DCD3;
         }
-
         #works a {
             text-decoration: none;
-            color: #4A3B32;
-            display: block;
+            color: #4A3B32; /* サイト全体の基本文字色 */
+            display: block; /* クリック範囲を正しくカード全体に広げるため */
         }
         #awards a {
             text-decoration: none;
-            color: #4A3B32;
+            color: #4A3B32; /* サイト全体の基本文字色 */
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>壱単位</h1>
-    <p>小説執筆 / シナリオ・原作制作</p>
-</header>
+    <header>
+        <h1>壱単位</h1>
+        <p>小説執筆 / シナリオ・原作制作</p>
+    </header>
 
-<nav>
-    <a href="#about">Profile</a>
-    <a href="#works">Works</a>
-    <a href="#awards">Awards</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#about">Profile</a>
+        <a href="#works">Works</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<div class="container">
+    <div class="container">
+        
+        <section id="about">
+            <h2>Profile</h2>
+            <p style="text-align: center; font-size: 15px;">
+                壱単位（いちたんい）と申します。兼業ライトノベル作家、シナリオ・原作作家。<br>
+                読者をキャラの隣にお招きして世界を感じていただけるような描写を心がけています。<br>
+                北海道在住。自宅のなかも外も人間より動物のほうが多い環境で暮らしています。<br>
+                お仕事のご依頼、ご相談はContactよりお気軽にご連絡ください。
+            </p>
+        </section>
 
-<section id="about">
-    <h2>Profile</h2>
-    <p style="text-align: center; font-size: 15px;">
-        壱単位（いちたんい）と申します。兼業ライトノベル作家、シナリオ・原作作家。<br>
-        読者をキャラの隣にお招きして世界を感じていただけるような描写を心がけています。<br>
-        北海道在住。自宅のなかも外も人間より動物のほうが多い環境で暮らしています。<br>
-        お仕事のご依頼、ご相談はContactよりお気軽にご連絡ください。
-    </p>
-</section>
+        <section id="works">
+            <h2>Works</h2>
+            
+            <a href="https://contest.nola-novel.com/gensaku-award-2025/#award-excellent-18" target="_blank">
+            <div class="work-card">
+                <div class="work-cover"><img src="./img_04.png"></div>
+                <div class="work-text">
+                    <h3>銀揚羽は最下層に舞う～特定廃棄ダンジョン専門サルベージ屋が救うもの～</h3>
+                    <p>第一回Nola原作大賞、株式会社一二三書房さま（コミックノヴァ編集部さま）ご選出にて優秀賞を受賞。ノヴァコミックスさまからのコミカライズに向けて鋭意作業中。</p>
+                </div>
+            </div>
+            </a>
 
-<section id="contact">
-    <h2>Contact & SNS</h2>
-    <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">
-        壱単位へのご連絡、最新の執筆状況や日常のつぶやきはこちらから。
-    </p>
-    <div class="sns-links">
-        <a href="mailto:ichitan.novel@gmail.com">メール</a>
-        <a href="https://marshmallow-qa.com/s4m5wnwpkpxblyn" target="_blank">マシュマロ</a>
-        <a href="https://x.com/ichitan_i" target="_blank">X (Twitter)</a>
-        <a href="https://kakuyomu.jp/users/ichitan" target="_blank">カクヨム</a>
+            <a href="https://kakuyomu.jp/works/16818792439989384741" target="_blank">
+            <div class="work-card">
+                <div class="work-cover"><img src="./img_02.png"></div>
+                <div class="work-text">
+                    <h3>自動人形のあなたは闇の天才人形師に毎晩しっとりメンテナンスされるのです。</h3>
+                    <p>原作・シナリオ担当。第4回「G'sこえけん」音声化短編コンテスト大賞受賞作。天才人形師・ヒスイの手によってつくられたあなたは、身体のすみずみまで……。ASMR音声作品化進行中。</p>
+                </div>
+            </div>
+            </a>
+            
+            <a href="https://gs-ch.com/video/sm5bUAaiPrmJSEVc5km7BDm4" target="_blank">
+            <div class="work-card">
+                <div class="work-cover"><img src="./img_01.png"></div>
+                <div class="work-text">
+                    <h3>水無月るおんの大失態。</h3>
+                    <p>原作・シナリオ担当。第2回「G'sこえけん」音声化短編コンテストボイスドラマ部門優秀賞受賞作。緊張するととんでもないクセを発現してしまう和風美少女、水無月るおん。恋を諦めかけたそのときに……！ CV：島田愛野さま。G'sチャンネル、YouTubeにて無料配信中。</p>
+                </div>
+            </div>
+            </a>
+
+            <a href="https://kakuyomu.jp/users/ichitan/works" target="_blank">
+            <div class="work-card">
+                <div class="work-cover"><img src="./img_03.png"></div>
+                <div class="work-text">
+                    <h3>そのほかの作品</h3>
+                    <p>壱単位のほとんどの作品はカクヨムで公開しています。</p>
+                </div>
+            </div>
+            </a>
+
+        </section>
+
+        <section id="awards">
+            <h2>Awards & News</h2>
+            <ul class="award-list">
+                <li><span class="award-year">2026.03</span> <a href="https://www.berrys-cafe.jp/contest/episode1/02/berrys" target="_blank">スターツ出版小説投稿サイト合同企画「第2回1話だけ大賞」にて部門賞を受賞しました。</a></li>
+                <li><span class="award-year">2026.03</span> <a href="https://contest.nola-novel.com/gensaku-award-2025/#award-excellent-18" target="_blank">第一回Nola原作大賞にて優秀賞（コミックノヴァ編集部）を受賞しました。</a></li>
+                <li><span class="award-year">2026.02</span> <a href="https://kakuyomu.jp/contests/gs_koeken_2025" target="_blank">第4回「G'sこえけん」音声化短編コンテストにて大賞を受賞しました。</a></li>
+                <li><span class="award-year">2025.02</span> <a href="https://books.tugikuru.jp/contest5/" target="_blank">第5回ツギクル小説大賞にて特別審査賞を受賞しました。</a></li>
+                <li><span class="award-year">2024.09</span> <a href="https://creators.mechacomic.jp/novel_contest/novel_romance/result" target="_blank">めちゃコミッククリエイターズ恋愛マンガ原作大賞にて期待賞を受賞しました。</a></li>
+                <li><span class="award-year">2024.01</span> <a href="https://kakuyomu.jp/contests/gs_koeken_2023" target="_blank">第2回「G'sこえけん」音声化短編コンテストにてボイスドラマ部門優秀賞を受賞しました。</a></li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact & SNS</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">
+                壱単位へのご連絡、最新の執筆状況や日常のつぶやきはこちらから。
+            </p>
+            <div class="sns-links">
+                <a href="mailto:ichitan.novel@gmail.com">メール</a>
+                <a href="https://marshmallow-qa.com/s4m5wnwpkpxblyn" target="_blank">マシュマロ</a>
+                <a href="https://x.com/ichitan_i" target="_blank">X (Twitter)</a>
+                <a href="https://kakuyomu.jp/users/ichitan" target="_blank">カクヨム</a>
+                <!-- a href="https://story.nola-novel.com/user/U-2a42186c-1f70-41c4-865a-785117cf08fc" target="_blank">Nolaノベル</a -->
+            </div>
+        </section>
+
     </div>
-</section>
 
-</div>
-
-<footer>
-    &copy; 2026 Ichitan-i. All rights reserved.
-</footer>
+    <footer>
+        &copy; 2026 Ichitan-i. All rights reserved.
+    </footer>
 
 </body>
-</html>
+</html> 
