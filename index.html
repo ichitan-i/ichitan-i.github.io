@@ -82,7 +82,7 @@
         }
         
         /* 横長（16:9）のダミー画像枠 */
-        .work-cover {
+        /* .work-cover {
             width: 100%;
             aspect-ratio: 16 / 9;
             /* background-color: #F4EFEA; /* 優しいミルクティー色 */ */
@@ -101,8 +101,27 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
+        } */
+/* work-coverの角丸設定（強化版） */
+.work-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;           /* 角丸の大きさ（6px → 8px に少し調整。ご好みで変更可） */
+    overflow: hidden;             /* 画像が角丸からはみ出さないように必須 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F4EFEA;    /* 画像読み込み前の背景色（任意） */
+}
 
+.work-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* 画像をコンテナに合わせてトリミング */
+    border-radius: 8px;           /* img要素にも同じ角丸を直接適用（確実性向上） */
+    display: block;               /* 余計な隙間を防ぐ */
+}
+        
         .work-text h3 {
             margin: 0 0 10px 0;
             font-size: 18px;
