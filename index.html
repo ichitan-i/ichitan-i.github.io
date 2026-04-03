@@ -125,56 +125,36 @@
             }
         }
 
-        /* /* 受賞歴リスト */
+        /* 受賞歴リスト */
         .award-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         .award-list li {
-            font-size: 15px;
+            display: flex;
             margin-bottom: 15px;
-            padding-left: 1em;
-            text-indent: -1em;
+            font-size: 15px;
+            align-items: flex-start;
+            gap: 16px;                    /* 日付と本文の間隔（微調整可） */
         }
         .award-year {
             color: #D4A373;
-            margin-right: 15px;
             font-weight: bold;
-        } */
-/* 受賞歴リスト */
-.award-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.award-list li {
-    display: flex;
-    margin-bottom: 15px;
-    font-size: 15px;
-    align-items: flex-start;
-    gap: 16px;                    /* 日付と本文の間隔（微調整可） */
-}
-
-.award-year {
-    color: #D4A373;
-    font-weight: bold;
-    white-space: nowrap;          /* 日付を折り返さない */
-    flex-shrink: 0;
-    width: 78px;                  /* 日付の右端を揃える固定幅 */
-    text-align: right;            /* 日付を見やすく右寄せ */
-}
-
-/* 本文（リンク）部分の調整 - ここが重要です */
-.award-list li a {
-    flex: 1 1 auto;               /* 残りの幅を柔軟に使用 */
-    margin: 0;                    /* 余計なマージンを除去 */
-    padding: 0;                   /* 余計なパディングを除去 */
-    text-indent: 0;               /* インデントを明示的に解除 */
-    text-align: left;             /* 左揃えを明示 */
-    line-height: 1.8;             /* 読みやすさのために調整（必要に応じて） */
-}
-        
+            white-space: nowrap;          /* 日付を折り返さない */
+            flex-shrink: 0;
+            width: 78px;                  /* 日付の右端を揃える固定幅 */
+            text-align: right;            /* 日付を見やすく右寄せ */
+        }
+        /* 本文（リンク）部分の調整 - ここが重要です */
+        .award-list li a {
+            flex: 1 1 auto;               /* 残りの幅を柔軟に使用 */
+            margin: 0;                    /* 余計なマージンを除去 */
+            padding: 0;                   /* 余計なパディングを除去 */
+            text-indent: 0;               /* インデントを明示的に解除 */
+            text-align: left;             /* 左揃えを明示 */
+            line-height: 1.8;             /* 読みやすさのために調整（必要に応じて） */
+        }
         /* 本文部分（リンク）の調整 */
         .award-list li a {
             flex: 1;                      /* 残りの幅をすべて使用 */
@@ -218,6 +198,30 @@
         .sns-links a:hover {
             background-color: #D4A373;
             color: #FFFFFF;
+        }
+        
+        /* Profileセクションのスマホ専用調整 */
+        #about p {
+            text-align: center;           /* PC・タブレットでは中央寄せのまま */
+            font-size: 15px;
+            margin: 0 auto;               /* 中央寄せ時に幅を制限するため */
+            max-width: 100%;              /* デフォルトは画面幅いっぱい */
+        }
+        
+        /* スマホ（599px以下）での調整 */
+        @media (max-width: 599px) {
+            #about p {
+                text-align: left;         /* 左寄せ */
+                width: 60%;               /* 画面幅の60%に制限 */
+                max-width: 60%;           /* 確実に60%以内に収める */
+                margin: 0 auto;           /* 中央に配置（左寄せテキストを中央寄せレイアウトで表示） */
+                white-space: normal;      /* 自然な折り返しを許可 */
+            }
+            
+            /* 強制改行（<br>タグ）をスマホでは無効化 */
+            #about p br {
+                display: none;
+            }
         }
 
         /* フッター */
