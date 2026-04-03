@@ -149,6 +149,20 @@
             justify-content: center;
             gap: 20px;
         }
+        /* SNSリンク：スマホでの縦並び＋横幅統一 */
+        @media (max-width: 599px) {
+            .sns-links {
+                flex-direction: column;     /* 縦方向に積む */
+                align-items: center;        /* 中央寄せ */
+                gap: 16px;                  /* ボタン同士の間隔（調整可） */
+            }
+        
+            .sns-links a {
+                width: 100%;                /* 親要素いっぱいに広げる */
+                max-width: 300px;           /* 最大幅を統一（見た目に合わせて調整可） */
+                text-align: center;         /* ボタン内の文字を中央揃え */
+            }
+        }
 
         .sns-links a {
             display: inline-block;
@@ -159,6 +173,7 @@
             border-radius: 25px;
             font-size: 14px;
             transition: background-color 0.3s ease;
+            text-align: center;
         }
         .sns-links a:hover {
             background-color: #D4A373;
