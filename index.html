@@ -125,7 +125,7 @@
             }
         }
 
-        /* 受賞歴リスト */
+        /* /* 受賞歴リスト */
         .award-list {
             list-style: none;
             padding: 0;
@@ -140,6 +140,25 @@
             color: #D4A373;
             margin-right: 15px;
             font-weight: bold;
+        } */
+        /* 受賞歴リスト */
+        .award-list {
+            list-style: none;
+            padding: 0;
+        }
+        .award-list li {
+            display: flex;                /* Flexboxを適用 */
+            gap: 15px;                    /* 日付と本文の間隔（必要に応じて調整） */
+            margin-bottom: 15px;
+            font-size: 15px;
+            align-items: flex-start;      /* 垂直方向の位置を揃える */
+        }
+        .award-year {
+            color: #D4A373;
+            font-weight: bold;
+            white-space: nowrap;          /* 日付を折り返させない */
+            flex-shrink: 0;               /* 日付の幅を縮小させない */
+            min-width: 72px;              /* 日付の右端を揃えるための最小幅（フォントサイズに合わせて調整してください） */
         }
 
         /* SNSリンク */
