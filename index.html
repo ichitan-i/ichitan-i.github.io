@@ -146,19 +146,29 @@
             list-style: none;
             padding: 0;
         }
+        
         .award-list li {
-            display: flex;                /* Flexboxを適用 */
-            gap: 15px;                    /* 日付と本文の間隔（必要に応じて調整） */
+            display: flex;
             margin-bottom: 15px;
             font-size: 15px;
-            align-items: flex-start;      /* 垂直方向の位置を揃える */
+            align-items: flex-start;
+            gap: 15px;                    /* 日付と本文の間隔 */
         }
+        
         .award-year {
             color: #D4A373;
             font-weight: bold;
-            white-space: nowrap;          /* 日付を折り返させない */
-            flex-shrink: 0;               /* 日付の幅を縮小させない */
-            min-width: 72px;              /* 日付の右端を揃えるための最小幅（フォントサイズに合わせて調整してください） */
+            white-space: nowrap;          /* 日付を折り返さない */
+            flex-shrink: 0;               /* 幅を縮小させない */
+            width: 78px;                  /* ← ここを固定幅に変更（重要） */
+            text-align: right;            /* 日付を右寄せにして見た目を整える */
+        }
+        
+        /* 本文部分（リンク）の調整 */
+        .award-list li a {
+            flex: 1;                      /* 残りの幅をすべて使用 */
+            text-decoration: none;
+            color: #4A3B32;
         }
 
         /* SNSリンク */
