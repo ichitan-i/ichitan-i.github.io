@@ -123,11 +123,11 @@
             .work-cover {
                 flex: 0 0 240px; /* 画像の幅を固定して控えめに */
             }
-            .sns-links {
-                flex-direction: row;       /* 横並び */
-                justify-content: center;
-                flex-wrap: wrap;           /* はみ出し防止（地味に重要） */
-                gap: 20px;
+             .sns-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
             }
         }
 
@@ -149,18 +149,13 @@
         }
 
         /* SNSリンク */
-        /* .sns-links {
+        .sns-links {
             text-align: center;
             display: flex;
             justify-content: center;
             gap: 20px;
-        } */
-        .sns-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
         }
+
         .sns-links a {
             display: inline-block;
             padding: 10px 25px;
