@@ -141,28 +141,39 @@
             margin-right: 15px;
             font-weight: bold;
         } */
-        /* 受賞歴リスト */
-        .award-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .award-list li {
-            display: flex;
-            margin-bottom: 15px;
-            font-size: 15px;
-            align-items: flex-start;
-            gap: 15px;                    /* 日付と本文の間隔 */
-        }
-        
-        .award-year {
-            color: #D4A373;
-            font-weight: bold;
-            white-space: nowrap;          /* 日付を折り返さない */
-            flex-shrink: 0;               /* 幅を縮小させない */
-            width: 78px;                  /* ← ここを固定幅に変更（重要） */
-            text-align: right;            /* 日付を右寄せにして見た目を整える */
-        }
+/* 受賞歴リスト */
+.award-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.award-list li {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 15px;
+    align-items: flex-start;
+    gap: 16px;                    /* 日付と本文の間隔（微調整可） */
+}
+
+.award-year {
+    color: #D4A373;
+    font-weight: bold;
+    white-space: nowrap;          /* 日付を折り返さない */
+    flex-shrink: 0;
+    width: 78px;                  /* 日付の右端を揃える固定幅 */
+    text-align: right;            /* 日付を見やすく右寄せ */
+}
+
+/* 本文（リンク）部分の調整 - ここが重要です */
+.award-list li a {
+    flex: 1 1 auto;               /* 残りの幅を柔軟に使用 */
+    margin: 0;                    /* 余計なマージンを除去 */
+    padding: 0;                   /* 余計なパディングを除去 */
+    text-indent: 0;               /* インデントを明示的に解除 */
+    text-align: left;             /* 左揃えを明示 */
+    line-height: 1.8;             /* 読みやすさのために調整（必要に応じて） */
+}
         
         /* 本文部分（リンク）の調整 */
         .award-list li a {
